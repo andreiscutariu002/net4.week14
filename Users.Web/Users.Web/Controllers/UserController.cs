@@ -13,14 +13,7 @@ namespace Users.Web.Controllers
 
         public UserController()
         {
-            var connection = new SqlConnection
-            {
-                ConnectionString = "Data Source=.; Initial Catalog=week14;Integrated Security=True;"
-            };
-
-            connection.Open();
-
-            _repo = new UserRepository(connection);
+            _repo = new UserRepository(ConnectionManager.GetConnection());
         }
 
         [HttpGet]

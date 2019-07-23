@@ -5,7 +5,7 @@ namespace Users.Data
     public static class ConnectionManager
     {
         // TODO - keep in configuration file
-        private static readonly string ConnectionString = "Data Source=.; Initial Catalog=week14;Integrated Security=True;";
+        private const string ConnectionString = "Data Source=.; Initial Catalog=week14;Integrated Security=True;";
 
         private static SqlConnection _connection;
 
