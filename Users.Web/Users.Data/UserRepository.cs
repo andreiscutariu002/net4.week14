@@ -15,10 +15,9 @@ namespace Users.Data
 
         public List<User> GetAll()
         {
-            string query = $"select * from users";
-
             var list = new List<User>();
 
+            var query = $"select * from users";
             var command = new SqlCommand
             {
                 CommandText = query,
@@ -26,11 +25,8 @@ namespace Users.Data
             };
 
             var reader = command.ExecuteReader();
-
-            while (reader.HasRows)
+            while (reader.Read())
             {
-                reader.Read();
-
                 var userId = (int) reader["id"];
                 var userName = reader["username"] as string;
                 var email = reader["email"] as string;

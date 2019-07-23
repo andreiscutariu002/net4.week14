@@ -27,7 +27,6 @@ namespace Users.Web.Controllers
         public ActionResult Index()
         {
             var allUsers = _repo.GetAll();
-
             var userListModels = allUsers.Select(x => new UserListViewModel
             {
                 Id = x.Id,
