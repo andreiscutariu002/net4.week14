@@ -20,6 +20,3 @@ VALUES ('dan', 'dan@yahoo.com', 'iasi', 'some user', 'street 2');
 
 INSERT INTO USERS (USERNAME, EMAIL, CITY, DESCRIPTION, STREET)
 VALUES ('gigi', 'gigi@yahoo.com', 'vaslui', 'some user', 'street 2');
-
-
-
