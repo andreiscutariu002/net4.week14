@@ -25,25 +25,27 @@ namespace Users.Data
                 Connection = _connection
             };
 
-            var reader = command.ExecuteReader();
-            while (reader.Read())
+            using (var reader = command.ExecuteReader())
             {
-                var userId = (int) reader["id"];
-                var userName = reader["username"] as string;
-                var email = reader["email"] as string;
-                var description = reader["description"] as string;
-                var city = reader["city"] as string;
-                var street = reader["street"] as string;
-
-                list.Add(new User
+                while (reader.Read())
                 {
-                    Id = userId,
-                    Email = email,
-                    Description = description,
-                    Username = userName,
-                    Street = street,
-                    City = city
-                });
+                    var userId = (int) reader["id"];
+                    var userName = reader["username"] as string;
+                    var email = reader["email"] as string;
+                    var description = reader["description"] as string;
+                    var city = reader["city"] as string;
+                    var street = reader["street"] as string;
+
+                    list.Add(new User
+                    {
+                        Id = userId,
+                        Email = email,
+                        Description = description,
+                        Username = userName,
+                        Street = street,
+                        City = city
+                    });
+                }
             }
 
             return list;
